@@ -18,6 +18,5 @@ try:
     print(f'横浜の気圧: {pressure} hPa')
 except urllib.error.URLError as e:
     print('気圧情報の取得に失敗しました。エラー:', e)
-    if pressure is not None:
-        if pressure <= 1007:
+if pressure <= 1007:
             print('低気圧になりました。頭痛注意！薬を飲みましょう')

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+    <!-- ⑥↓タイトルを変えてみよう -->
+    <title>プログラミング</title>
+    <!-- ⑤スタイルシートの設定をしよう -->
+    <!-- h1.htmlからある行をコピペしてくればOK -->
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@300&display=swap" rel="stylesheet">
+    <style>
+    body{
+      background-color:lavenderblush;
+    }
+   </style>
+    
+</head>
+<body>
+   
+  <div style="padding: 1rem; border-left: 6px double #263f1f; font-size: 20px;"><h2>デザイン演習　第5回</h2></div>
+    
+    <!-- 塊ごとにdivタグで区切るようにしましょう。 -->
+    <div>
+         <!-- ①↓に文字を書いてみよう -->
+         
+         <h2><font color="salmon">プログラミング</font></h2>
+         
+         <h3>~気圧から判断して頭痛注意を知らせてくれるプログラム~</h3>
+           <div> 
+             横浜の気圧を取得して、<b><font color="mediumpurple">1007hPa以下になると頭痛注意と表示</font>するようにした。<br>
+             2015年に行われた東海大学の研究で、1013hPaよりも6〜10hPa下がると頭痛の発症率が高くなるとう結果が出ている。<br>
+            今回はこの研究を参考にして1007hPa以下を注意対象とした。
+           </div>
+         
+         <h3>~ソースコード~</h3>
+           <div>
+            <code>
+              <ol style="list-style:decimal-leading-zero outside;in-left:0;padding-left:36px;margin:0;background-color:#FFF7F7;color:#A00;">
+              <li style="background-color:#FFF7F7;"># Code InportError になってrequestが使えなかった</li>
+              <li style="background-color:#FFFDFD;">#urllib.request は URLs (Uniform Resource Locators) を取得するための Python モジュールである</li>
+              <li style="background-color:#FFF7F7;">import urllib.request</li>
+              <li style="background-color:#FFFDFD;">import json</li>
+              <li style="background-color:#FFF7F7;"></li>
+              <li style="background-color:#FFFDFD;"># OpenWeatherMap APIキーを取得して入力</li>
+              <li style="background-color:#FFF7F7;">api_key = '2ac00926ab84ac46e5872e550aa4a2de'</li>
+              <li style="background-color:#FFFDFD;"># 取得したい地域のcityコードを入力</li>
+              <li style="background-color:#FFF7F7;">city = 'Yokohama,JP'</li>
+              <li style="background-color:#FFFDFD;">url = f'http://api.openweathermap.org/data/2.5/weather?q={city}&amp;appid={api_key}'</li>
+              <li style="background-color:#FFF7F7;"></li>
+              <li style="background-color:#FFFDFD;">try:</li>
+              <li style="background-color:#FFF7F7;">&nbsp;&nbsp;&nbsp;&nbsp;response = urllib.request.urlopen(url)</li>
+              <li style="background-color:#FFFDFD;">&nbsp;&nbsp;&nbsp;&nbsp;data = json.loads(response.read().decode('utf-8'))</li>
+              <li style="background-color:#FFF7F7;">&nbsp;&nbsp;&nbsp;&nbsp;</li>
+              <li style="background-color:#FFFDFD;">&nbsp;&nbsp;&nbsp;&nbsp;pressure = data['main']['pressure']</li>
+              <li style="background-color:#FFF7F7;">&nbsp;&nbsp;&nbsp;&nbsp;</li>
+              <li style="background-color:#FFFDFD;">&nbsp;&nbsp;&nbsp;&nbsp;print(f'横浜の気圧: {pressure} hPa')</li>
+              <li style="background-color:#FFF7F7;">except urllib.error.URLError as e:</li>
+              <li style="background-color:#FFFDFD;">&nbsp;&nbsp;&nbsp;&nbsp;print('気圧情報の取得に失敗しました。エラー:', e)</li>
+              <li style="background-color:#FFF7F7;">if pressure &lt;= 1007:</li>
+              <li style="background-color:#FFFDFD;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print('低気圧になりました。頭痛注意！薬を飲みましょう')</li>
+              <li style="background-color:#FFF7F7;"></li>
+              </ol></code>
+              表示イメージ（1030hPa以下を注意対象とした場合）<br>
+              <img src="../de12/images/1.png" width="30%">
+           </div>
+         <!-- ②↓に画像（imagesフォルダにあるtest.png）を挿入してみよう -->
+         <h3>~反省点~</h3>
+           <div>
+            Import request を行おうとしたところ Code ImportErrorと表示されたため、調べてみるとバージョンが対応しておらず使えないことがわかった。<br>
+            そのためChatGPTで Import requestを使用せずに今回のコードを実行させる方法を試したところ、Import urllib.request を使用することでrequestを利用することができた。<br>
+            また、天気を表示させるためにはOpenWetherMapというサイトに登録をしAPIキーを入手する必要があった。簡単に表示することができると考えていたため少し手こずってしまった。<br>
+            さらに、課題に取り組んでいる間に気圧が1007hPa以下になることがなかったため、1030hPa以下になれば頭痛注意の表示がされるようにしたところ、きちんと注意が表示されることが確認できた。<br>
+            いくつかトラブルが起きてしまったが、とても満足いくものを作ることができた。
+           </div>
+
+          <h3>~参考文献~</h3>
+          <div>
+          <a href="https://diamond.jp/articles/-/307534?page=3#:~:text=2015%E5%B9%B4%E3%81%AB%E6%9D%B1%E6%B5%B7%E5%A4%A7%E5%AD%A6,%E6%B0%97%E5%9C%A7%E3%81%AF%E3%81%A0%E3%81%84%E3%81%9F%E3%81%8440%E3%83%98%E3%82%AF%E3%83%88%E3%83%91%E3%82%B9%E3%82%AB%E3%83%AB%E3%80%82">天気が原因で体調を崩す「気象病」の深刻、潜在患者は国内1000万人以上!?</a> <br>
+          <a href="https://docs.python.org/ja/3/howto/urllib2.html">urllib パッケージを使ってインターネット上のリソースを取得するには</a><br>
+          <a href="https://coronene.hatenablog.com/entry/python/importerror">【python】Code ImportError : cannot import name 'mapping' from 'collections'の解決方法</a>
+         </div>
+      </div>
+    </div>
+
+</body>
+</html>
