@@ -5,6 +5,7 @@ import json
 
 # OpenWeatherMap APIキーを取得して入力
 api_key = '2ac00926ab84ac46e5872e550aa4a2de'
+# 取得したい地域のcityコードを入力
 city = 'Yokohama,JP'
 url = f'http://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}'
 
@@ -19,4 +20,4 @@ except urllib.error.URLError as e:
     print('気圧情報の取得に失敗しました。エラー:', e)
     if pressure is not None:
         if pressure <= 1007:
-            print('気圧が1007hPa以下になりました。頭痛注意！')
+            print('低気圧になりました。頭痛注意！薬を飲みましょう')
