@@ -14,12 +14,10 @@ MMまで、バス、徒歩、車、合計時間
 # データの読み込み
 df = suumo.read_csv("./data/yokohama_kawasaki.csv", index_col=0, encoding="utf-8")
 
+df.scatter_station(["ＪＲ京葉線"],"階数","家賃")
 # データ分析
 # df.n_rooms("")
 #df.n_rooms_by_line(["ＪＲ線","京葉線"], "家賃")
 
 # df.average_bar("間取り", "面積")
 # df.average_bar_by_line(["目黒駅", "京急逗子線"], "間取り", "面積")
-
-# df.scatter_line("面積", "合計時間")
-df.scatter_station(["ＪＲ京葉線"], "構造", "家賃")
