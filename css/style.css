@@ -2,32 +2,54 @@
 /* 冒頭でimport */
 @import url('https://fonts.googleapis.com/css?family=Raleway:700&display=swap');
 @import url('https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c:400,700&display=swap&subset=japanese');
+@import url('https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c');
+@import url('https://fonts.googleapis.com/css?family=Sawarabi+Gothic');
 /* フォントを指定したいところで */
 
 logo img{
-    border-radius: 50%;
-    width: 150px;
-    height: 150px;
+    width: 400px;
+    height: auto;
     object-fit: cover; /* 画像のトリミング */
 }
 
 logotohome img{
-    border-radius: 70%;
-    width: 70px;
-    height: 70px;
+    width: 200px;
+    height: auto;
     object-fit: cover; /* 画像のトリミング */
 }
 
+ul {
+    list-style-type: none;  /* リストマーカーを非表示にする */
+    padding-left: 0;  /* 左側のスペースを無くす */
+    margin-left: 0;  /* 左側の余白も削除する場合に使用 */
+}
 
+.image-scroll-container {
+    display: flex; /* 画像を横に並べる */
+    overflow-x: auto; /* 横スクロールを有効にする */
+    white-space: nowrap; /* 画像が折り返さないようにする */
+    padding: 10px; /* コンテナ内の余白（任意） */
+}
+
+.image-scroll-container a {
+    display: inline-block; /* アンカータグをインラインブロックにして幅と高さを適用可能にする */
+    margin-right: 10px; /* 画像間のスペース（任意） */
+}
+
+.image-scroll-container img {
+    width: 300px;
+    height: auto; /* 高さは自動で調整 */
+    
+}
 
 /* ========== common ========== */
 html, body {
 	font-size: 16px;
-	font-family: "筑紫A丸ゴシック";
-	color: #393939;
+	font-family:'Sawarabi Gothic', sans-serif;
+	color: #FFFFF0;
     margin-left: 15px;
     margin-bottom: 40px;
-	background: #efefef;
+	background: #10100E;
 }
 h1{
     text-indent: 0em;
