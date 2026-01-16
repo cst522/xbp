@@ -1,61 +1,117 @@
 <!DOCTYPE html>
-<html lang="jp">
+<html lang="ja">
 <head>
-    <!-- ⑥↓タイトルを変えてみよう -->
-    <title>2025横浜サーキュラープロジェクト</title>
-    <!-- ⑤スタイルシートの設定をしよう -->
-    <!-- h1.htmlからある行をコピペしてくればOK -->
-    <link rel="stylesheet" href="./css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025横浜サーキュラープロジェクト | 道用ゼミ</title>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@300;500&family=Italiana&family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/vendor.css">
+    <link rel="stylesheet" href="css/style.css">
+
     <style>
-    body{
-      background-color:lavenderblush;
-      font-family: "筑紫A丸ゴシック";
-    }
-    
-   </style>
-    
+        body, h1, h2, h3, h4, h5, p, a, span, div, li {
+            font-family: 'Kiwi Maru', serif !important;
+        }
+        .navbar-brand img {
+            max-height: 50px;
+            width: auto;
+        }
+        .post-content {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .section-title {
+            color: salmon;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            margin-top: 40px;
+        }
+        .member-list {
+            color: mediumpurple;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
-<body>
-   
-  <div style="padding: 1rem; border-left: 6px double #263f1f; font-size: 20px;"><h2>2025横浜サーキュラープロジェクト</h2></div>
-    
-    <!-- 塊ごとにdivタグで区切るようにしましょう。 -->
-    <div>
-         <!-- ①↓に文字を書いてみよう -->
-         
-         <h2><font color="salmon"></font></h2>
-         
-         
-           <font color="mediumpurple"><h3>メンバー</h3></font>
-           <div>
-            古木千里<br>
-            粟野友結<br>
-            西尾美奈<br>
-            二橋綾音<br>
-           </div>
+<body class="bg-body">
 
-   
-      <font color="mediumpurple"><h3>私たちのテーマ</h3></font>
-       <div>
-        <b>＜可愛くオシャレに暑熱対策＞</b>
-        紙布をレーザーカッターで加工して、レース風に！！<br>
-        
+    <header id="header" class="nav-header fixed-top border-bottom">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <nav class="navbar navbar-expand-lg">
+                    <a class="navbar-brand" href="index.html">
+                        <img src="images/main-logo.png" alt="VASO Logo">
+                    </a>
+                    
+                    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="index.html#projects">Projects</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
 
+    <section class="padding-medium mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center mb-5">
+                    <h1 class="display-4">2025横浜サーキュラープロジェクト</h1>
+                    <div style="width: 60px; height: 3px; background-color: #333; margin: 20px auto;"></div>
+                </div>
+            </div>
 
-       </div>
-   
+            <div class="post-content">
+                
+                <h4 class="member-list">メンバー</h4>
+                <p>古木千里、粟野友結、西尾美奈、二橋綾音</p>
 
-            <br>
+                <h2 class="section-title">私たちのテーマ</h2>
+                
+                <h3 class="mt-4 mb-3">＜可愛くオシャレに暑熱対策＞</h3>
+                
+                <p>
+                    紙布をレーザーカッターで加工して、レース風に！！
+                </p>
+                
+                <div class="text-center mt-5">
+                    <img src="images/cart-img2.jpg" alt="プロジェクトイメージ" class="img-fluid rounded" style="max-height: 400px;">
+                </div>
 
-            
-           
-         <!-- ②↓に画像（imagesフォルダにあるtest.png）を挿入してみよう -->
-         
-        
-    </div>
+            </div>
 
+            <div class="text-center mt-5">
+                <a href="index.html#projects" class="btn btn-medium btn-black">一覧に戻る</a>
+            </div>
+
+        </div>
+    </section>
+
+    <footer id="footer" class="padding-medium text-center">
+        <div class="container">
+            <p>© 2026 Doyo Seminar. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/swiper.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
