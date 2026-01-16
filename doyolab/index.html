@@ -1,27 +1,218 @@
 <!DOCTYPE html>
-<html lang="jp">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>XBP_HPsample</title>
-    <link rel="stylesheet" href="./css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>道用ゼミ | ポートフォリオ</title>
     
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@300;500&family=Italiana&family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/vendor.css">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        /* ★サイト全体のフォントを「Kiwi Maru」に強制統一 */
+        body, h1, h2, h3, h4, h5, p, a, span, div {
+            font-family: 'Kiwi Maru', serif !important;
+        }
+
+        /* ロゴのサイズ制限 */
+        .navbar-brand img {
+            max-height: 50px;
+            width: auto;
+        }
+
+        /* トップ画像（ビルボード）の高さ指定 */
+        #billboard .img-wrapper {
+            height: 80vh;
+            width: 100%;
+        }
+        #billboard img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        /* プロジェクト画像のサイズ統一 */
+        .product-card .image-holder {
+            width: 100%;
+            height: 350px; /* ★3列になるので少し高さを抑えました */
+            overflow: hidden;
+            position: relative;
+        }
+        .product-card .image-holder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        /* ホバー時に拡大 */
+        .product-card:hover .image-holder img {
+            transform: scale(1.1);
+        }
+
+        /* プロジェクトタイトルのスタイル */
+        .project-title {
+            margin-top: 15px;
+            font-size: 1.2rem;
+            text-align: center;
+            font-weight: 500;
+        }
+        .project-title a {
+            color: #333;
+            text-decoration: none;
+        }
+        .project-title a:hover {
+            color: #87826E; /* ホバー時の色 */
+        }
+    </style>
 </head>
-<body>
-    
-    <h1>道用ゼミ</h1>
-        
-        <h2>演習ノート一覧</h2>
-        <ul>
-           <li><a href="../doyolab/doyo1.html">2025鎌倉共創プロジェクト</a></li>
-           <li><a href="../doyolab/doyo2.html">2025横浜サーキュラープロジェクト</a></li>
-        </ul>
+<body class="bg-body" data-bs-spy="scroll" data-bs-target="#navbar">
 
+    <header id="header" class="nav-header fixed-top border-bottom">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <nav class="navbar navbar-expand-lg">
+                    <a class="navbar-brand" href="index.html">
+                        <img src="images/main-logo.png" alt="VASO Logo">
+                    </a>
+                    
+                    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
 
+    <section id="billboard" class="overflow-hidden">
+        <div class="swiper main-swiper">
+            <div class="swiper-wrapper">
+                
+                <div class="swiper-slide">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12 p-0">
+                                <div class="img-wrapper position-relative">
+                                    <img src="images/banner-img1.jpg" alt="Banner 1">
+                                    <div class="text-content text-center position-absolute top-50 start-50 translate-middle">
+                                        <h1 class="display-1 text-white" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.5);">道用ゼミ</h1>
+                                        <p class="fs-4 text-white" style="text-shadow: 1px 1px 5px rgba(0,0,0,0.5);">共創とサーキュラーエコノミーの実践</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-    
-<br>
-<br>
+                <div class="swiper-slide">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12 p-0">
+                                <div class="img-wrapper position-relative">
+                                    <img src="images/banner-img2.jpg" alt="Banner 2">
+                                    <div class="text-content text-center position-absolute top-50 start-50 translate-middle">
+                                        <h1 class="display-1 text-white" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.5);">活動記録</h1>
+                                        <p class="fs-4 text-white" style="text-shadow: 1px 1px 5px rgba(0,0,0,0.5);">デザインとテクノロジーの融合</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
 
+    <section id="projects" class="product-store position-relative padding-large">
+        <div class="container">
+            <div class="row">
+                <div class="display-header text-center pb-5">
+                    <h2 class="display-2 text-dark">演習ノート一覧</h2>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-4 mb-5">
+                        <div class="product-card position-relative">
+                            <div class="image-holder">
+                                <a href="doyo1.html">
+                                    <img src="images/cart-img1.jpg" alt="鎌倉プロジェクト" class="img-fluid">
+                                </a>
+                            </div>
+                            <h3 class="project-title">
+                                <a href="doyo1.html">鎌倉共創プロジェクト</a>
+                            </h3>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 mb-5">
+                        <div class="product-card position-relative">
+                            <div class="image-holder">
+                                <a href="doyo2.html">
+                                    <img src="images/cart-img2.jpg" alt="横浜プロジェクト" class="img-fluid">
+                                </a>
+                            </div>
+                            <h3 class="project-title">
+                                <a href="doyo2.html">サーキュラープロジェクト</a>
+                            </h3>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 mb-5">
+                        <div class="product-card position-relative">
+                            <div class="image-holder">
+                                <a href="#">
+                                    <img src="images/banner-img3.jpg" alt="環境省プロジェクト" class="img-fluid">
+                                </a>
+                            </div>
+                            <h3 class="project-title">
+                                <a href="#">環境省</a>
+                            </h3>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="footer" class="padding-medium text-center">
+        <div class="container">
+            <p>© 2026 Doyo Seminar. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/swiper.js"></script>
+    <script>
+        $(document).ready(function(){
+            var mainSwiper = new Swiper('.main-swiper', {
+                loop: true,
+                speed: 1000,
+                autoplay: {
+                    delay: 4000,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+            });
+        });
+    </script>
 </body>
 </html>
